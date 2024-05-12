@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ev1cdo5g2ct"]
+
+[ext_resource type="Texture2D" uid="uid://c4s7xsbrmnh1f" path="res://textures/cutespider.png" id="1_4uldy"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="2_mlk1d"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_4uldy")
+script = ExtResource("2_mlk1d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
