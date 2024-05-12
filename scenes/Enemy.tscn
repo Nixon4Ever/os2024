@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkow31ffpv6ug"]
+[gd_scene load_steps=4 format=3 uid="uid://dkow31ffpv6ug"]
 
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_exu7d"]
 [ext_resource type="Texture2D" uid="uid://c4s7xsbrmnh1f" path="res://textures/cutespider.png" id="1_p1r0j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_un06e"]
 radius = 46.0109
 
 [node name="BasicEnemy" type="CharacterBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_un06e")
+script = ExtResource("1_exu7d")
 
 [node name="Cutespider" type="Sprite2D" parent="."]
 texture = ExtResource("1_p1r0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 3
+shape = SubResource("CircleShape2D_un06e")
