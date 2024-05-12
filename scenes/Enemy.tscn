@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkow31ffpv6ug"]
+
+[ext_resource type="Texture2D" uid="uid://c4s7xsbrmnh1f" path="res://textures/cutespider.png" id="1_p1r0j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_un06e"]
+radius = 46.0109
+
+[node name="BasicEnemy" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_un06e")
+
+[node name="Cutespider" type="Sprite2D" parent="."]
+texture = ExtResource("1_p1r0j")
