@@ -4,14 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://c4s7xsbrmnh1f" path="res://textures/cutespider.png" id="1_p1r0j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_un06e"]
-radius = 46.0109
+radius = 38.2099
 
 [node name="BasicEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_exu7d")
 
 [node name="Cutespider" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
 texture = ExtResource("1_p1r0j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visibility_layer = 3
 shape = SubResource("CircleShape2D_un06e")
