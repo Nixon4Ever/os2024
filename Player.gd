@@ -59,4 +59,24 @@ func _physics_process(delta):
 		if health <= 0.0:
 			health_depleted.emit()
 
+func _on_grab_area_area_entered(area):
+	if area.is_in_group("loot"):
+		area.target = self
 
+func _on_collect_area_area_entered(area):
+	if area.is_in_group("loot"):
+		var gem_exp = area.collect()
+		calculate_experience(gem_exp)
+		
+func calculate_experience(gem_exp):
+	var exp_required = clacultate_experiencecap()
+	
+func clacultate_experiencecap():
+	var exp_cap = experience_level
+	if experience_level < 20:
+		exp_cap = experience_level * 5
+	elif experience_level < 40:
+		exp_cap = 95 * (experience_level-19)*8
+	else:
+		exp_cap = 255 + (experience_level-39)*12
+	return exp_cap
