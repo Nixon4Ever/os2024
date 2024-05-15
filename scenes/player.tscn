@@ -70,3 +70,11 @@ collision_mask = 2
 z_index = 5
 shape = SubResource("RectangleShape2D_erl5d")
 debug_color = Color(0.890196, 0, 0.121569, 0.313726)
+
+[node name="GrabArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+
+[node name="CollectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]

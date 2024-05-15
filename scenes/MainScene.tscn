@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bxyawhvec441g" path="res://scenes/player.tscn" id="1_8tvxv"]
 [ext_resource type="Shader" path="res://Shader/Scroll.gdshader" id="1_oy7p8"]
+[ext_resource type="Texture2D" uid="uid://bwe1jtvd6l05a" path="res://textures/new water.png" id="2_ilrl5"]
 [ext_resource type="Shader" path="res://Shader/FoamScroll.gdshader" id="3_1swri"]
-[ext_resource type="Texture2D" uid="uid://di44v3md8mjtf" path="res://textures/ResizedWater.png" id="3_hrhga"]
-[ext_resource type="Texture2D" uid="uid://dfjai2mvtkej8" path="res://textures/Foam Resized.png" id="4_a6577"]
+[ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/new waterfoam.png" id="4_k0w1c"]
 [ext_resource type="PackedScene" uid="uid://dkow31ffpv6ug" path="res://scenes/Enemy.tscn" id="6_gstrd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmou"]
@@ -21,7 +21,7 @@ texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_hvmou")
 position = Vector2(0, 1)
-texture = ExtResource("3_hrhga")
+texture = ExtResource("2_ilrl5")
 region_enabled = true
 region_rect = Rect2(40000, 40000, 40000, 40000)
 
@@ -30,7 +30,7 @@ z_index = -9
 texture_repeat = 2
 material = SubResource("ShaderMaterial_vsi2s")
 position = Vector2(64, 64)
-texture = ExtResource("4_a6577")
+texture = ExtResource("4_k0w1c")
 region_enabled = true
 region_rect = Rect2(40000, 40000, 40000, 40000)
 

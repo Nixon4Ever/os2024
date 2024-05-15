@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://cm6rrwo7dcjmt"]
+[gd_scene load_steps=2 format=3 uid="uid://cm6rrwo7dcjmt"]
 
-[node name="Experince orb" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/experince_orb.gd" id="1_iy5oq"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_iy5oq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
