@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxyawhvec441g"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_6cw6k"]
+[ext_resource type="Texture2D" uid="uid://c4s7xsbrmnh1f" path="res://textures/cutespider.png" id="2_ynq4c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_va72e"]
+radius = 39.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jknod"]
+radius = 40.0125
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dwaj"]
+bg_color = Color(0.890068, 0.0827498, 0.167205, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iq43y"]
+bg_color = Color(0, 0.727768, 0.0893875, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_6cw6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_va72e")
+
+[node name="Cutespider" type="Sprite2D" parent="."]
+texture = ExtResource("2_ynq4c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+z_index = 5
+shape = SubResource("CircleShape2D_jknod")
+debug_color = Color(0.890196, 0, 0.121569, 0.313726)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -57.0
+offset_top = -87.0
+offset_right = 58.0
+offset_bottom = -60.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3dwaj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iq43y")
+step = 1.0
+value = 100.0
+show_percentage = false
