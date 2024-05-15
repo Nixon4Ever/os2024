@@ -38,4 +38,4 @@ region_rect = Rect2(40000, 40000, 40000, 40000)
 position = Vector2(1, 1)
 
 [node name="ExperienceOrb" parent="." instance=ExtResource("6_cmv4a")]
-position = Vector2(364, -117)
+position = Vector2(694, -190)

@@ -7,7 +7,7 @@ var spr_steak = preload("res://textures/xp items/steak.png")
 #var spr_enchiladas = preload()
 
 var target = null
-var speed = -1
+var speed = -2
 
 @onready var sprite = $Sprite2D
 @onready var collision = $CollisionShape2D
@@ -23,7 +23,7 @@ func _ready():
 func _physics_process(delta):
 	if target != null:
 		global_position = global_position.move_toward(target.global_position, speed)
-		speed += 2 * delta
+		speed += 10 * delta
 		
 
 func collect():

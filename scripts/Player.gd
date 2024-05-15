@@ -17,10 +17,10 @@ var collected_experience = 0
 @onready var expbar = get_node("%ExperienceBar")
 @onready var lbllevel = get_node("%Level")
 
-signal health_depleted
-
 func _ready():
 	set_expbar(experience, calculate_experiencecap())
+
+signal health_depleted
 
 func _physics_process(delta):
 	#SPEED INPUT
@@ -103,3 +103,4 @@ func calculate_experiencecap():
 func set_expbar(set_value = 1, set_max_value = 100):
 	expbar.value = set_value
 	expbar.max_value = set_max_value
+

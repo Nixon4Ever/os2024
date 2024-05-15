@@ -1,13 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5mtfah2tnnv0"]
+[gd_scene load_steps=3 format=3 uid="uid://c5mtfah2tnnv0"]
 
-[ext_resource type="PackedScene" uid="uid://c3sfgsk8jsm4m" path="res://scenes/UI.tscn" id="1_6xwml"]
 [ext_resource type="PackedScene" uid="uid://d0acnm4mhk217" path="res://scenes/Main2D.tscn" id="2_7pilc"]
 [ext_resource type="Script" path="res://scripts/Timer.gd" id="2_r3y2y"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iukr6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqlrp"]
-bg_color = Color(0.983933, 0.16821, 0.827631, 1)
 
 [node name="Main" type="Node"]
 
@@ -33,22 +27,3 @@ offset_bottom = 55.0
 theme_override_font_sizes/font_size = 40
 text = "15:00"
 horizontal_alignment = 1
-
-[node name="Control" parent="CanvasLayer" instance=ExtResource("1_6xwml")]
-
-[node name="ExperienceBar" type="ProgressBar" parent="CanvasLayer/Control"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 27.0
-theme_override_styles/background = SubResource("StyleBoxFlat_iukr6")
-theme_override_styles/fill = SubResource("StyleBoxFlat_lqlrp")
-show_percentage = false
-
-[node name="Level" type="Label" parent="CanvasLayer/Control/ExperienceBar"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_right = 128.0
-offset_bottom = 27.0
-text = "Level:1"
-vertical_alignment = 1
