@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1ev1cdo5g2ct"]
+
+[ext_resource type="Shader" path="res://Shader/Scroll.gdshader" id="1_1hqu7"]
+[ext_resource type="Texture2D" uid="uid://bwe1jtvd6l05a" path="res://textures/new water.png" id="2_pvqpp"]
+[ext_resource type="Shader" path="res://Shader/FoamScroll.gdshader" id="3_j3237"]
+[ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/new waterfoam.png" id="4_p4c7s"]
+[ext_resource type="PackedScene" uid="uid://bxyawhvec441g" path="res://scenes/player.tscn" id="5_6brsd"]
+[ext_resource type="PackedScene" uid="uid://dkow31ffpv6ug" path="res://scenes/Enemy.tscn" id="6_f5ipu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmou"]
+shader = ExtResource("1_1hqu7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsi2s"]
+shader = ExtResource("3_j3237")
+
+[node name="Main2D" type="Node2D"]
+
+[node name="ResizedWater" type="Sprite2D" parent="."]
+z_index = -10
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_hvmou")
+position = Vector2(0, 1)
+texture = ExtResource("2_pvqpp")
+region_enabled = true
+region_rect = Rect2(40000, 40000, 40000, 40000)
+
+[node name="FoamResized" type="Sprite2D" parent="."]
+z_index = -9
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vsi2s")
+position = Vector2(64, 64)
+texture = ExtResource("4_p4c7s")
+region_enabled = true
+region_rect = Rect2(40000, 40000, 40000, 40000)
+
+[node name="Player" parent="." instance=ExtResource("5_6brsd")]
+position = Vector2(0, 1)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("6_f5ipu")]
+position = Vector2(-376, -112)
