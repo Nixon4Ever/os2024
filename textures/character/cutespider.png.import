@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7w7ik7s10duj"
-path="res://.godot/imported/raft.png-5b8d49f00fcbb516a7faa6123b51d6d8.ctex"
+uid="uid://c4s7xsbrmnh1f"
+path="res://.godot/imported/cutespider.png-66b60d92504d5e9fca5b6008a2a7cba9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/raft.png"
-dest_files=["res://.godot/imported/raft.png-5b8d49f00fcbb516a7faa6123b51d6d8.ctex"]
+source_file="res://textures/character/cutespider.png"
+dest_files=["res://.godot/imported/cutespider.png-66b60d92504d5e9fca5b6008a2a7cba9.ctex"]
 
 [params]
 
