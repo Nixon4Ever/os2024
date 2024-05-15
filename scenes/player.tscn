@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxyawhvec441g"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_6cw6k"]
-[ext_resource type="Texture2D" uid="uid://7w7ik7s10duj" path="res://textures/character/raft.png" id="2_jweuj"]
+[ext_resource type="Texture2D" uid="uid://7w7ik7s10duj" path="res://textures/character/raft.png" id="2_5cfyv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qif0j"]
 size = Vector2(128, 96)
@@ -36,7 +36,7 @@ z_index = -2
 position = Vector2(-7.63326e-06, 0.0883865)
 rotation = 1.5708
 scale = Vector2(0.998619, 1)
-texture = ExtResource("2_jweuj")
+texture = ExtResource("2_5cfyv")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
