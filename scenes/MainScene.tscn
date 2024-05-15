@@ -1,41 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1ev1cdo5g2ct"]
+[gd_scene load_steps=4 format=3 uid="uid://c5mtfah2tnnv0"]
 
-[ext_resource type="PackedScene" uid="uid://bxyawhvec441g" path="res://scenes/player.tscn" id="1_8tvxv"]
-[ext_resource type="Shader" path="res://Shader/Scroll.gdshader" id="1_oy7p8"]
-[ext_resource type="Texture2D" uid="uid://bwe1jtvd6l05a" path="res://textures/water/new water.png" id="2_ilrl5"]
-[ext_resource type="Shader" path="res://Shader/FoamScroll.gdshader" id="3_1swri"]
-[ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/water/new waterfoam.png" id="4_k0w1c"]
-[ext_resource type="PackedScene" uid="uid://dkow31ffpv6ug" path="res://scenes/Enemy.tscn" id="6_gstrd"]
+[ext_resource type="PackedScene" uid="uid://c3sfgsk8jsm4m" path="res://scenes/UI.tscn" id="1_6xwml"]
+[ext_resource type="PackedScene" uid="uid://c1ev1cdo5g2ct" path="res://scenes/Main2D.tscn" id="2_7pilc"]
+[ext_resource type="Script" path="res://scripts/Timer.gd" id="2_r3y2y"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmou"]
-shader = ExtResource("1_oy7p8")
+[node name="Main" type="Node"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsi2s"]
-shader = ExtResource("3_1swri")
+[node name="Main2D" parent="." instance=ExtResource("2_7pilc")]
 
-[node name="MainScene" type="Node2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ResizedWater" type="Sprite2D" parent="."]
-z_index = -10
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_hvmou")
-position = Vector2(0, 1)
-texture = ExtResource("2_ilrl5")
-region_enabled = true
-region_rect = Rect2(40000, 40000, 40000, 40000)
+[node name="Timer" type="Panel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = -4.0
+offset_right = 75.0
+offset_bottom = 53.0
+grow_horizontal = 2
+script = ExtResource("2_r3y2y")
 
-[node name="FoamResized" type="Sprite2D" parent="."]
-z_index = -9
-texture_repeat = 2
-material = SubResource("ShaderMaterial_vsi2s")
-position = Vector2(64, 64)
-texture = ExtResource("4_k0w1c")
-region_enabled = true
-region_rect = Rect2(40000, 40000, 40000, 40000)
+[node name="TimerText" type="Label" parent="CanvasLayer/Timer"]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 40
+text = "15:00"
+horizontal_alignment = 1
 
-[node name="Player" parent="." instance=ExtResource("1_8tvxv")]
-position = Vector2(0, 1)
-
-[node name="BasicEnemy" parent="." instance=ExtResource("6_gstrd")]
-position = Vector2(-376, -112)
+[node name="Control" parent="CanvasLayer" instance=ExtResource("1_6xwml")]

@@ -1,10 +1,73 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxyawhvec441g"]
+[gd_scene load_steps=7 format=3 uid="uid://bxyawhvec441g"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_6cw6k"]
 [ext_resource type="Texture2D" uid="uid://7w7ik7s10duj" path="res://textures/character/raft.png" id="2_5cfyv"]
 
+[sub_resource type="GDScript" id="GDScript_y5rpv"]
+script/source = "extends CharacterBody2D
+
+var health := 100.0
+var direction := 0.0
+var speed := 0.0
+
+var ang_accel :=.008
+var turn_max :=.025
+var accel := 600.0
+var speed_max := 500.0
+var speed_reverse_max := 200.0
+
+var exp = 0
+var level = 1
+
+signal health_depleted
+
+func _physics_process(delta):
+	#SPEED INPUT
+	if Input.is_action_pressed(\"MoveUp\"):
+		speed += accel*delta
+	elif Input.is_action_pressed(\"MoveDown\"):
+		speed -= accel*delta
+	elif speed < 0:
+		speed += accel*delta
+		if speed >0:
+			speed = 0
+	elif speed > 0:
+		speed -= accel*delta
+		if speed < 0:
+			speed = 0
+	#SPEED CLAMP
+	if speed > speed_max:
+		speed = speed_max
+	elif speed < -speed_reverse_max:
+		speed = -speed_reverse_max
+	var dir_input := 0.0
+	if Input.is_action_pressed(\"MoveLeft\"):
+		dir_input = -1
+	if Input.is_action_pressed(\"MoveRight\"):
+		dir_input += 1
+	
+	direction +=clampf(speed*dir_input*delta*ang_accel,-turn_max,turn_max)
+	
+	velocity = Vector2.from_angle(direction)*speed
+	move_and_slide()
+	if velocity.length() != 0:
+		if speed >0:
+			%Raft.rotation = velocity.angle() - (PI/2)
+		else:
+			%Raft.rotation = velocity.angle() + (PI/2)
+
+	const DAMAGE_RATE = 5.0
+	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+	if overlapping_mobs.size() > 0:
+		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		%HealthBar.value = health
+		if health <= 0.0:
+			health_depleted.emit()
+
+
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qif0j"]
-size = Vector2(120, 91)
+size = Vector2(128, 96)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxy0i"]
 bg_color = Color(0.890068, 0.0827498, 0.167205, 1)
@@ -21,21 +84,13 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erl5d"]
-size = Vector2(122, 93)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nyn0v"]
-radius = 197.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_vok7q"]
-radius = 34.0588
+size = Vector2(130, 98)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
-script = ExtResource("1_6cw6k")
+script = SubResource("GDScript_y5rpv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qif0j")
 
 [node name="Raft" type="Sprite2D" parent="."]
@@ -71,29 +126,18 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 z_index = 5
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_erl5d")
 debug_color = Color(0.890196, 0, 0.121569, 0.313726)
 
 [node name="GrabArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
-shape = SubResource("CircleShape2D_nyn0v")
 
 [node name="CollectArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
-shape = SubResource("CircleShape2D_vok7q")
-
-[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
-[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
