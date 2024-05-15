@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfjai2mvtkej8"
-path="res://.godot/imported/Foam Resized.png-a0ca321afcbbd61043727c70def0eb64.ctex"
+path="res://.godot/imported/Foam Resized.png-39529b59e77b480bbadba90c5fd263b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Foam Resized.png"
-dest_files=["res://.godot/imported/Foam Resized.png-a0ca321afcbbd61043727c70def0eb64.ctex"]
+source_file="res://textures/water/Foam Resized.png"
+dest_files=["res://.godot/imported/Foam Resized.png-39529b59e77b480bbadba90c5fd263b7.ctex"]
 
 [params]
 

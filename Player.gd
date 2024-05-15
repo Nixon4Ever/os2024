@@ -5,9 +5,10 @@ var direction := 0.0
 var speed := 0.0
 
 var ang_accel :=.008
-var turn_max :=.05
-var accel := 500.0
-var speed_max := 200.0
+var turn_max :=.025
+var accel := 600.0
+var speed_max := 500.0
+var speed_reverse_max := 200.0
 
 var experience = 0
 var experience_level = 1
@@ -32,8 +33,8 @@ func _physics_process(delta):
 	#SPEED CLAMP
 	if speed > speed_max:
 		speed = speed_max
-	elif speed < -speed_max:
-		speed = -speed_max
+	elif speed < -speed_reverse_max:
+		speed = -speed_reverse_max
 	var dir_input := 0.0
 	if Input.is_action_pressed("MoveLeft"):
 		dir_input = -1

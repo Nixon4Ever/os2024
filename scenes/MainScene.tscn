@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bxyawhvec441g" path="res://scenes/player.tscn" id="1_8tvxv"]
 [ext_resource type="Shader" path="res://Shader/Scroll.gdshader" id="1_oy7p8"]
-[ext_resource type="Texture2D" uid="uid://bwe1jtvd6l05a" path="res://textures/new water.png" id="2_ilrl5"]
+[ext_resource type="Texture2D" uid="uid://bwe1jtvd6l05a" path="res://textures/water/new water.png" id="2_ilrl5"]
 [ext_resource type="Shader" path="res://Shader/FoamScroll.gdshader" id="3_1swri"]
-[ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/new waterfoam.png" id="4_k0w1c"]
+[ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/water/new waterfoam.png" id="4_k0w1c"]
 [ext_resource type="PackedScene" uid="uid://dkow31ffpv6ug" path="res://scenes/Enemy.tscn" id="6_gstrd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmou"]
