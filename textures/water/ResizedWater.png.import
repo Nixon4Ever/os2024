@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccfives4qc11w"
-path="res://.godot/imported/new waterfoam.png-00fd2199e07f6cd425a16942c6a01fdb.ctex"
+uid="uid://di44v3md8mjtf"
+path="res://.godot/imported/ResizedWater.png-af89ef68b275852f794999773d7d8aa7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/new waterfoam.png"
-dest_files=["res://.godot/imported/new waterfoam.png-00fd2199e07f6cd425a16942c6a01fdb.ctex"]
+source_file="res://textures/water/ResizedWater.png"
+dest_files=["res://.godot/imported/ResizedWater.png-af89ef68b275852f794999773d7d8aa7.ctex"]
 
 [params]
 
