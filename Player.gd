@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 var health = 100.0
+var exp = 0
+var level = 1
 
 signal health_depleted
 
