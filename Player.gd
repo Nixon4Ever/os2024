@@ -9,8 +9,9 @@ var turn_max :=.05
 var accel := 500.0
 var speed_max := 200.0
 
-var exp = 0
-var level = 1
+var experience = 0
+var experience_level = 1
+var collected_experience = 0
 
 signal health_depleted
 
