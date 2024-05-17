@@ -17,6 +17,7 @@ var collected_experience = 0
 @onready var expbar = get_node("%ExperienceBar")
 @onready var lbllevel = get_node("%Level")
 
+
 func _ready():
 	set_expbar(experience, calculate_experiencecap())
 

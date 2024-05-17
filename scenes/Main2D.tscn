@@ -5,7 +5,7 @@
 [ext_resource type="Shader" path="res://Shader/FoamScroll.gdshader" id="3_j3237"]
 [ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/water/new waterfoam.png" id="4_p4c7s"]
 [ext_resource type="PackedScene" uid="uid://bxyawhvec441g" path="res://scenes/player.tscn" id="5_6brsd"]
-[ext_resource type="PackedScene" uid="uid://cm6rrwo7dcjmt" path="res://scenes/experince_orb.tscn" id="6_cmv4a"]
+[ext_resource type="PackedScene" uid="uid://dkow31ffpv6ug" path="res://scenes/BasicSerpent.tscn" id="7_1oppi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmou"]
 shader = ExtResource("1_1hqu7")
@@ -37,5 +37,5 @@ region_rect = Rect2(40000, 40000, 40000, 40000)
 [node name="Player" parent="." instance=ExtResource("5_6brsd")]
 position = Vector2(1, 1)
 
-[node name="ExperienceOrb" parent="." instance=ExtResource("6_cmv4a")]
-position = Vector2(694, -190)
+[node name="BasicSerpent" parent="." instance=ExtResource("7_1oppi")]
+position = Vector2(549, -176)
