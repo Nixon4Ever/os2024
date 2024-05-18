@@ -72,16 +72,15 @@ func _physics_process(delta):
 		var weaponName = weaponsObj.weapons[n]
 		var weaponLvl = weaponsObj.weapons_lvl[n]
 		var fireRate = weaponsObj.weaponDict[weaponName][\"upgrades\"][0][\"fire_rate\"]
-		if weaponName == \"Axe\":
-			if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
+		if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
+			if weaponName == \"Axe\":
 				
 				var proj = playerProjScene.instantiate()
 				proj.position=position
 				proj.velocity = Vector2.from_angle(direction)*1000
 				projectilesObj.add_child(proj)
 				proj.setIcon(weaponsObj.IconDict[\"Axe\"])
-		if weaponName == \"Cannon\":
-			if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
+			if weaponName == \"Cannon\":
 				
 				var proj = playerProjScene.instantiate()
 				proj.position=position
