@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0acnm4mhk217"]
+[gd_scene load_steps=9 format=3 uid="uid://c1ev1cdo5g2ct"]
 
 [ext_resource type="Shader" path="res://Shader/Scroll.gdshader" id="1_1hqu7"]
 [ext_resource type="Texture2D" uid="uid://bwe1jtvd6l05a" path="res://textures/water/new water.png" id="2_pvqpp"]
@@ -39,3 +39,5 @@ position = Vector2(1, 1)
 
 [node name="ExperienceOrb" parent="." instance=ExtResource("6_cmv4a")]
 position = Vector2(694, -190)
+
+[node name="Projectiles" type="Node2D" parent="."]
