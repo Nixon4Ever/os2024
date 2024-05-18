@@ -126,6 +126,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Cannon" parent="." instance=ExtResource("3_fmiwp")]
+visible = false
 
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]

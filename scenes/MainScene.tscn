@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5mtfah2tnnv0"]
 
-[ext_resource type="PackedScene" uid="uid://c1ev1cdo5g2ct" path="res://scenes/Main2D.tscn" id="2_7pilc"]
+[ext_resource type="PackedScene" uid="uid://d0acnm4mhk217" path="res://scenes/Main2D.tscn" id="2_7pilc"]
 [ext_resource type="Script" path="res://scripts/Timer.gd" id="2_r3y2y"]
 [ext_resource type="Script" path="res://scripts/Weapons.gd" id="3_cfhuo"]
 
