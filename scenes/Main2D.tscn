@@ -5,10 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bwe1jtvd6l05a" path="res://textures/water/new water.png" id="2_pvqpp"]
 [ext_resource type="Shader" path="res://Shader/FoamScroll.gdshader" id="3_j3237"]
 [ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/water/new waterfoam.png" id="4_p4c7s"]
-[ext_resource type="PackedScene" uid="uid://bxyawhvec441g" path="res://scenes/player.tscn" id="5_6brsd"]
-[ext_resource type="PackedScene" path="res://scenes/BasicSerpent.tscn" id="7_1oppi"]
-[ext_resource type="PackedScene" uid="uid://baaiusd7q5paa" path="res://scenes/player_projectile.tscn" id="7_fqkyd"]
-[ext_resource type="PackedScene" uid="uid://dvji6c6y4o03j" path="res://scenes/cannonball.tscn" id="8_ngbxh"]
+[ext_resource type="PackedScene" uid="uid://du3tlwgireb5s" path="res://scenes/player.tscn" id="5_6brsd"]
+[ext_resource type="PackedScene" uid="uid://c8enedgmukycy" path="res://scenes/BasicSerpent.tscn" id="7_1oppi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmou"]
 shader = ExtResource("1_1hqu7")

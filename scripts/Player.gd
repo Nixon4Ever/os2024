@@ -76,11 +76,11 @@ func _physics_process(delta):
 		var fireRate = weaponsObj.weaponDict[weaponName]["upgrades"][0]["fire_rate"]
 		if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
 			if weaponName == "Axe":
-				print("SPAWN")
 				var proj = playerProjScene.instantiate()
 				proj.position=position
 				proj.velocity = Vector2.from_angle(randf()*PI*2)*1000
 				proj.ang_vel = 10
+				proj.pierce=2
 				projectilesObj.add_child(proj)
 				proj.setIcon(weaponsObj.IconDict["Axe"])
 

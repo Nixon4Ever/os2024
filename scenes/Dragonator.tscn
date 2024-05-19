@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cph8brxtwjofc"]
+[gd_scene load_steps=7 format=3 uid="uid://cm1yrkte0w8i1"]
 
 [ext_resource type="Texture2D" uid="uid://bpd5o4ffws6pb" path="res://textures/weapons/dragonator-Sheet.png" id="1_66sv5"]
+[ext_resource type="Script" path="res://scripts/Dragonator.gd" id="1_pu3qq"]
 
 [sub_resource type="Animation" id="Animation_45eu3"]
 resource_name = "Dragonator"
 loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -48,7 +50,7 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.6, 0.7, 0.8),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.85, 0.9, 0.95, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 3, 2, 1, 0]
@@ -114,7 +116,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6jyc"]
 size = Vector2(142, 32)
 
-[node name="Node2D" type="Node2D"]
+[node name="Dragonator" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_pu3qq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(64, 0)
@@ -130,7 +134,10 @@ autoplay = "Dragonator"
 speed_scale = 0.435
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(71, 0)
 shape = SubResource("RectangleShape2D_i6jyc")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_body_entered"]

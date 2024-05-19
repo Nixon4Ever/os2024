@@ -12,9 +12,8 @@ func _physics_process(delta):
 	velocity = direction * movement_speed
 	move_and_slide()
 
-func take_damage_cannon():
-	const DAMAGE = 4
-	health -= DAMAGE
+func take_damage(damage):
+	health -= damage
 	
 	if health <= 0:
 		death()

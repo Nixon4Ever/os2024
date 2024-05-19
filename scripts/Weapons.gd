@@ -94,7 +94,7 @@ func _ready():
 		add_child(newSlot)
 		slots.append(newSlot)
 	addWeapon("Axe")
-	addWeapon("Cannon")
+	#addWeapon("Cannon")
 	reloadContainer()
 	
 
