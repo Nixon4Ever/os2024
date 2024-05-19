@@ -38,7 +38,7 @@ radius = 47.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jf04g"]
 bg_color = Color(0.983933, 0.16821, 0.827631, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_6m665")
 
@@ -142,6 +142,48 @@ offset_bottom = -6.03201
 theme_override_constants/h_separation = 42
 theme_override_constants/v_separation = 42
 script = ExtResource("4_mrax7")
+
+[node name="LevelUp" type="Panel" parent="gui/Control"]
+unique_name_in_owner = true
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 624.0
+offset_top = -216.5
+offset_right = 1024.0
+offset_bottom = 216.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="lbl_LevelUp" type="Label" parent="gui/Control/LevelUp"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 33
+text = "Level Up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeOptions" type="VBoxContainer" parent="gui/Control/LevelUp"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 100.0
+offset_right = 180.0
+offset_bottom = 250.0
+grow_horizontal = 2
 
 [node name="Cannon" parent="." instance=ExtResource("3_fmiwp")]
 
