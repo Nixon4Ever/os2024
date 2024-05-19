@@ -20,6 +20,7 @@ func take_damage_cannon():
 		death()
 
 func death():
+	print("DEATH")
 	var exp_gem = load("res://scenes/experince_orb.tscn")
 	var new_gem = exp_gem.instantiate()
 	new_gem.global_position = global_position

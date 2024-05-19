@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0acnm4mhk217"]
+[gd_scene load_steps=11 format=3 uid="uid://d0acnm4mhk217"]
 
 [ext_resource type="Shader" path="res://Shader/Scroll.gdshader" id="1_1hqu7"]
 [ext_resource type="Texture2D" uid="uid://bwe1jtvd6l05a" path="res://textures/water/new water.png" id="2_pvqpp"]
 [ext_resource type="Shader" path="res://Shader/FoamScroll.gdshader" id="3_j3237"]
 [ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/water/new waterfoam.png" id="4_p4c7s"]
 [ext_resource type="PackedScene" uid="uid://bxyawhvec441g" path="res://scenes/player.tscn" id="5_6brsd"]
-[ext_resource type="PackedScene" uid="uid://dkow31ffpv6ug" path="res://scenes/BasicSerpent.tscn" id="7_1oppi"]
+[ext_resource type="PackedScene" path="res://scenes/BasicSerpent.tscn" id="7_1oppi"]
+[ext_resource type="PackedScene" uid="uid://baaiusd7q5paa" path="res://scenes/player_projectile.tscn" id="7_fqkyd"]
+[ext_resource type="PackedScene" uid="uid://dvji6c6y4o03j" path="res://scenes/cannonball.tscn" id="8_ngbxh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmou"]
 shader = ExtResource("1_1hqu7")
@@ -41,3 +43,27 @@ position = Vector2(1, 1)
 position = Vector2(549, -176)
 
 [node name="loot" type="Node2D" parent="." groups=["loot"]]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="PlayerProjectile" parent="Projectiles" instance=ExtResource("7_fqkyd")]
+
+[node name="Cannonball" parent="Projectiles" instance=ExtResource("8_ngbxh")]
+
+[node name="BasicSerpent2" parent="." instance=ExtResource("7_1oppi")]
+position = Vector2(-682, 478)
+
+[node name="BasicSerpent3" parent="." instance=ExtResource("7_1oppi")]
+position = Vector2(-692, -362)
+
+[node name="BasicSerpent4" parent="." instance=ExtResource("7_1oppi")]
+position = Vector2(206, -256)
+
+[node name="BasicSerpent5" parent="." instance=ExtResource("7_1oppi")]
+position = Vector2(646, 426)
+
+[node name="BasicSerpent6" parent="." instance=ExtResource("7_1oppi")]
+position = Vector2(1793, -193)
+
+[node name="BasicSerpent7" parent="." instance=ExtResource("7_1oppi")]
+position = Vector2(971, -845)

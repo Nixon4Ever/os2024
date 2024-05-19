@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5mtfah2tnnv0"]
+[gd_scene load_steps=3 format=3 uid="uid://c5mtfah2tnnv0"]
 
 [ext_resource type="PackedScene" uid="uid://d0acnm4mhk217" path="res://scenes/Main2D.tscn" id="2_7pilc"]
 [ext_resource type="Script" path="res://scripts/Timer.gd" id="2_r3y2y"]
-[ext_resource type="Script" path="res://scripts/Weapons.gd" id="3_cfhuo"]
 
 [node name="Main" type="Node"]
 
@@ -28,13 +27,3 @@ offset_bottom = 55.0
 theme_override_font_sizes/font_size = 40
 text = "15:00"
 horizontal_alignment = 1
-
-[node name="WeaponsContainer" type="HFlowContainer" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_right = 0.114
-anchor_bottom = 0.215
-offset_right = 10.304
-offset_bottom = -6.03201
-theme_override_constants/h_separation = 42
-theme_override_constants/v_separation = 42
-script = ExtResource("3_cfhuo")

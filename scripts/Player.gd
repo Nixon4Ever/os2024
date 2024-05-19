@@ -13,10 +13,14 @@ var speed_reverse_max := 200.0
 var experience = 0
 var experience_level = 1
 var collected_experience = 0
+var time_total:= 0.0
 
 @onready var expbar = get_node("%ExperienceBar")
 @onready var lbllevel = get_node("%Level")
 
+var playerProjScene = preload("res://scenes/player_projectile.tscn")
+@onready var projectilesObj = get_tree().root.get_child(0).get_node("Main2D/Projectiles")
+@onready var weaponsObj = get_tree().root.get_child(0).get_node("Main2D/Player/gui/Control/WeaponsContainer")
 
 func _ready():
 	set_expbar(experience, calculate_experiencecap())
@@ -24,6 +28,7 @@ func _ready():
 signal health_depleted
 
 func _physics_process(delta):
+	time_total+=delta
 	#SPEED INPUT
 	if Input.is_action_pressed("MoveUp"):
 		speed += accel*delta
@@ -65,6 +70,19 @@ func _physics_process(delta):
 		%HealthBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
+	for n in range(0,weaponsObj.weapons.size()):
+		var weaponName = weaponsObj.weapons[n]
+		var weaponLvl = weaponsObj.weapons_lvl[n]
+		var fireRate = weaponsObj.weaponDict[weaponName]["upgrades"][0]["fire_rate"]
+		if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
+			if weaponName == "Axe":
+				print("SPAWN")
+				var proj = playerProjScene.instantiate()
+				proj.position=position
+				proj.velocity = Vector2.from_angle(randf()*PI*2)*1000
+				proj.ang_vel = 10
+				projectilesObj.add_child(proj)
+				proj.setIcon(weaponsObj.IconDict["Axe"])
 
 func _on_grab_area_area_entered(area):
 	if area.is_in_group("loot"):

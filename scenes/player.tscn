@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bxyawhvec441g"]
+[gd_scene load_steps=14 format=3 uid="uid://bxyawhvec441g"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_6m665"]
 [ext_resource type="Texture2D" uid="uid://7w7ik7s10duj" path="res://textures/character/raft.png" id="2_5cfyv"]
 [ext_resource type="PackedScene" uid="uid://c3sfgsk8jsm4m" path="res://scenes/UI.tscn" id="2_v3s7a"]
 [ext_resource type="PackedScene" uid="uid://bahu6tqcpiyxa" path="res://scenes/cannon.tscn" id="3_fmiwp"]
+[ext_resource type="Script" path="res://scripts/Weapons.gd" id="4_mrax7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qif0j"]
 size = Vector2(128, 96)
@@ -125,8 +126,18 @@ text = "Level:1"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="WeaponsContainer" type="HFlowContainer" parent="gui/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.114
+anchor_bottom = 0.215
+offset_right = 10.304
+offset_bottom = -6.03201
+theme_override_constants/h_separation = 42
+theme_override_constants/v_separation = 42
+script = ExtResource("4_mrax7")
+
 [node name="Cannon" parent="." instance=ExtResource("3_fmiwp")]
-visible = false
 
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]

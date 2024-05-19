@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ft66cnmmrfgb"]
+[gd_scene load_steps=4 format=3 uid="uid://dvji6c6y4o03j"]
 
 [ext_resource type="Script" path="res://scripts/Cannonball.gd" id="1_0thrj"]
 [ext_resource type="Texture2D" uid="uid://dbmhea4gdfuxf" path="res://textures/weapons/cannonball.png" id="2_p8q3x"]
@@ -16,6 +16,7 @@ script = ExtResource("1_0thrj")
 shape = SubResource("CircleShape2D_t7ghb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 scale = Vector2(1.31371, 1.31371)
 texture = ExtResource("2_p8q3x")
 
