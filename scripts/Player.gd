@@ -81,7 +81,6 @@ func calculate_experience(gem_exp):
 	if experience + collected_experience >= exp_required:
 		collected_experience -= exp_required-experience
 		experience_level += 1
-		print("Level:", experience_level)
 		experience = 0 
 		exp_required = calculate_experiencecap()
 		calculate_experience(0)

@@ -1,10 +1,119 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm6rrwo7dcjmt"]
+[gd_scene load_steps=7 format=3 uid="uid://cm6rrwo7dcjmt"]
 
 [ext_resource type="Script" path="res://scripts/experince_orb.gd" id="1_iy5oq"]
-[ext_resource type="Texture2D" uid="uid://u4hyn3akgvjp" path="res://textures/xp items/cheeeseburger.png" id="2_nqvpw"]
+[ext_resource type="Texture2D" uid="uid://b6mxdaomuh25o" path="res://textures/xp items/coin.png" id="2_vmlvx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rnfad"]
-size = Vector2(35, 36)
+[sub_resource type="Animation" id="Animation_icf57"]
+resource_name = "Coin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_vmlvx")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_1fmec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_vmlvx")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t3nyn"]
+_data = {
+"Coin": SubResource("Animation_icf57"),
+"RESET": SubResource("Animation_1fmec")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wyjtr"]
+radius = 17.1172
 
 [node name="ExperienceOrb" type="Area2D" groups=["loot"]]
 collision_layer = 4
@@ -12,11 +121,19 @@ collision_mask = 0
 script = ExtResource("1_iy5oq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_nqvpw")
+texture = ExtResource("2_vmlvx")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_t3nyn")
+}
+autoplay = "Coin"
+speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_rnfad")
+shape = SubResource("CircleShape2D_wyjtr")
 
 [node name="snd_collected" type="AudioStreamPlayer" parent="."]
 
