@@ -86,7 +86,7 @@ func _physics_process(delta):
 		var fireRate = weaponsObj.weaponDict[weaponName]["upgrades"][0]["fire_rate"]
 		if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
 			if weaponName == "Axe":
-				for projN in range(0,weaponsObj.weaponDict[weaponName]["upgrades"][weaponsObj.weapons_lvl[n]]["proj_num"]):
+				for projN in range(0,weaponsObj.weaponDict[weaponName]["upgrades"][weaponsObj.weapons_lvl[n-1]]["proj_num"]):
 					var proj = playerProjScene.instantiate()
 					proj.position=position
 					proj.velocity = Vector2.from_angle(randf()*PI*2)*1000
@@ -140,7 +140,7 @@ func level_up():
 		var wep = weaponsObj.weapons.find(n)
 		if wep != -1:
 			if weaponsObj.weapons_lvl[wep] < 5:
-				possibleOptions.append({"name":n,"lvl":weaponsObj.weapons_lvl[wep]+1,"stats":weaponsObj.weaponDict[n]["upgrades"][weaponsObj.weapons_lvl[wep]+1]["text"]})
+				possibleOptions.append({"name":n,"lvl":weaponsObj.weapons_lvl[wep]+1,"stats":weaponsObj.weaponDict[n]["upgrades"][weaponsObj.weapons_lvl[wep]]["text"]})
 		else:
 			possibleOptions.append({"name":n,"lvl":1,"stats":"new weapon"})
 	print(possibleOptions)

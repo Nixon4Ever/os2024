@@ -126,7 +126,7 @@ func reloadContainer():
 			slots[n].changeWep(IconDict[weapons[n]],weapons_lvl[n])
 			if(weapons[n] == "Dragonator"):
 				playerObj.get_node("%Raft/Dragonator").visible=true
-				playerObj.get_node("%Raft/Dragonator").damage = weaponDict["Dragonator"]["upgrades"][weapons_lvl[n]]["damage"]
+				playerObj.get_node("%Raft/Dragonator").damage = weaponDict["Dragonator"]["upgrades"][weapons_lvl[n-1]]["damage"]
 		else:
 			slots[n].changeWep(null,0)
 		
