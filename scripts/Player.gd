@@ -88,7 +88,7 @@ func _physics_process(delta):
 					proj.ang_vel = 10
 					proj.pierce=2
 					projectilesObj.add_child(proj)
-					proj.setIcon(weaponsObj.IconDict["Axe"])
+					proj.setIcon(weaponsObj.ProjDict["Axe"])
 
 func _on_grab_area_area_entered(area):
 	if area.is_in_group("loot"):

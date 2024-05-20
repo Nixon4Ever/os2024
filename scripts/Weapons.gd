@@ -5,9 +5,12 @@ var weapons_lvl: Array[int] = []
 var weaponSlotScene = preload("res://scenes/WeaponSlot.tscn")
 var slots:= []
 
+var ProjDict:={
+	"Axe":load("res://textures/weapons/axe projectile.png")
+}
 var IconDict:={
-	"Axe":load("res://textures/weapons/axe projectile.png"),
-	"Cannon":load("res://textures/weapons/cannonball.png"),
+	"Axe":load("res://textures/weapons/arxe_icon.png"),
+	"Cannon":load("res://textures/weapons/connonball_icon.png"),
 	"Dragonator":load("res://textures/weapons/dargonator_icon.png")
 }
 var weaponDict:={
