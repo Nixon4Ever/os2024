@@ -73,7 +73,7 @@ func _physics_process(delta):
 		DAMAGE_RATE += mob.damage
 		
 	if DAMAGE_RATE != 0:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		health -= DAMAGE_RATE * delta
 		%HealthBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
