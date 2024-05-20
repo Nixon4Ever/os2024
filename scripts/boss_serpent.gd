@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var movement_speed = 300
-var health = 30
+var health = 50
 var experience = 30
 
 
@@ -23,7 +23,11 @@ func take_damage(damage):
 
 func death():
 	print("DEATH")
-	ap.play("boss_death")
+	ap.play("Fat_angler_death")
+
+	
+
+func _on_animation_player_animation_finished(Fat_angler_death):
 	var exp_gem = load("res://scenes/experince_orb.tscn")
 	var new_gem = exp_gem.instantiate()
 	new_gem.global_position = global_position

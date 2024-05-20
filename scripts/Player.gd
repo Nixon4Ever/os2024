@@ -25,10 +25,10 @@ var playerProjScene = preload("res://scenes/player_projectile.tscn")
 @onready var projectilesObj = get_tree().root.get_child(0).get_node("Main2D/Projectiles")
 @onready var weaponsObj = get_tree().root.get_child(0).get_node("Main2D/Player/gui/Control/WeaponsContainer")
 
+signal health_depleted
+
 func _ready():
 	set_expbar(experience, calculate_experiencecap())
-
-signal health_depleted
 
 func _physics_process(delta):
 	time_total+=delta
@@ -66,10 +66,13 @@ func _physics_process(delta):
 		else:
 			%Raft.rotation = velocity.angle() + (PI/2)
 
-	const DAMAGE_RATE = 5.0
+	const DAMAGE_RATE = 10.0
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		if overlapping_mobs.has_node("FatAngler"):
+			health = DAMAGE_RATE *overlapping_mobs.size() * delta * 2
+		else:
+			health -= DAMAGE_RATE * overlapping_mobs.size() * delta
 		%HealthBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
