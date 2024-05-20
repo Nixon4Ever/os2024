@@ -3,6 +3,7 @@ extends Area2D
 @export var experience = 1
 
 var spr_coin = preload("res://textures/xp items/coin.png")
+var spr_bosscoin = preload("res://textures/xp items/boss_coin.png")
 
 
 var target = null
@@ -11,6 +12,12 @@ var speed = -2
 @onready var sprite = $Sprite2D
 @onready var collision = $CollisionShape2D
 @onready var ap = %AnimationPlayer
+
+func _ready():
+	if experience < 10:
+		return
+	else:
+		sprite.texture = spr_bosscoin
 
 func _physics_process(delta):
 	if target != null:
