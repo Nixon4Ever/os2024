@@ -34,6 +34,14 @@ var weaponDict:={
 			{
 				"damage":30,
 				"text":"25 -> 30 damage"
+			},
+			{
+				"damage":40,
+				"text":"30 -> 40 damage"
+			},
+			{
+				"damage":50,
+				"text":"40 -> 50 damage"
 			}
 		]
 	},
@@ -72,6 +80,20 @@ var weaponDict:={
 				"proj_speed":1,
 				"damage":14,
 				"text":"10 -> 14 damage"
+			},
+			{
+				"fire_rate":.2,
+				"proj_num":1,
+				"proj_speed":1,
+				"damage":20,
+				"text":"14 -> 20 damage"
+			},
+			{
+				"fire_rate":.15,
+				"proj_num":1,
+				"proj_speed":1,
+				"damage":20,
+				"text":"25% faster firing rate"
 			}
 		]
 	},
@@ -110,7 +132,21 @@ var weaponDict:={
 				"proj_speed":1,
 				"damage":30,
 				"text":"20 -> 30 damage"
-			}
+			},
+			{
+				"fire_rate":.8,
+				"proj_num":3,
+				"proj_speed":1,
+				"damage":30,
+				"text":"2 -> 3 projectiles"
+			},
+			{
+				"fire_rate":.8,
+				"proj_num":3,
+				"proj_speed":1,
+				"damage":40,
+				"text":"30 -> 40 damage"
+			},
 		]
 	}
 }
