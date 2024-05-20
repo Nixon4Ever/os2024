@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var movement_speed = 200
+var movement_speed = 300
 var health = 10
 var experience = 1
 var damage = 5
