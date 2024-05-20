@@ -125,11 +125,11 @@ func reloadContainer():
 		if weapons.size() > n:
 			slots[n].changeWep(IconDict[weapons[n]],weapons_lvl[n])
 			if(weapons[n] == "Cannon"):
-				$"../../../Cannon".damage = weaponDict["Cannon"]["upgrades"][weapons_lvl[n-1]]["damage"]
-				$"../../../Cannon".set_firerate(weaponDict["Cannon"]["upgrades"][weapons_lvl[n-1]]["fire_rate"])
+				$"../../../Cannon".damage = weaponDict["Cannon"]["upgrades"][weapons_lvl[n]-1]["damage"]
+				$"../../../Cannon".set_firerate(weaponDict["Cannon"]["upgrades"][weapons_lvl[n]-1]["fire_rate"])
 			elif(weapons[n] == "Dragonator"):
 				playerObj.get_node("%Raft/Dragonator").visible=true
-				playerObj.get_node("%Raft/Dragonator").damage = weaponDict["Dragonator"]["upgrades"][weapons_lvl[n-1]]["damage"]
+				playerObj.get_node("%Raft/Dragonator").damage = weaponDict["Dragonator"]["upgrades"][weapons_lvl[n]-1]["damage"]
 		else:
 			slots[n].changeWep(null,0)
 		

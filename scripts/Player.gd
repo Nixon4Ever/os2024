@@ -87,7 +87,7 @@ func _physics_process(delta):
 		if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
 			if weaponName == "Axe":
 				
-				for projN in range(0,weaponsObj.weaponDict[weaponName]["upgrades"][weaponsObj.weapons_lvl[min(n-1,4)]]["proj_num"]):
+				for projN in range(0,weaponsObj.weaponDict[weaponName]["upgrades"][weaponsObj.weapons_lvl[n]-1]["proj_num"]):
 					var proj = playerProjScene.instantiate()
 					proj.position=position
 					proj.velocity = Vector2.from_angle(randf()*PI*2)*1000
