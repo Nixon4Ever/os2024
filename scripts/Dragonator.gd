@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var damage := 14
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -10,6 +10,6 @@ func _ready():
 func _process(delta):
 	pass
 func _on_body_entered(body):
-	if body.has_method("take_damage"):
-		print("DRAG")
-		body.take_damage(14)
+	if damage != 0:
+		if body.has_method("take_damage"):
+			body.take_damage(damage)

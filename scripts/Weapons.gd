@@ -7,9 +7,29 @@ var slots:= []
 
 var IconDict:={
 	"Axe":load("res://textures/weapons/axe projectile.png"),
-	"Cannon":load("res://textures/weapons/cannonball.png")
+	"Cannon":load("res://textures/weapons/cannonball.png"),
+	"Dragonator":load("res://textures/weapons/dragonator.png")
 }
 var weaponDict:={
+	"Dragonator":{
+		"upgrades": [
+			{
+				"damage":10
+			},
+			{
+				"damage":15
+			},
+			{
+				"damage":20
+			},
+			{
+				"damage":25
+			},
+			{
+				"damage":30
+			}
+		]
+	},
 	"Cannon": {
 		"upgrades": [
 			{
@@ -80,10 +100,18 @@ var weaponDict:={
 	}
 }
 
+@onready var playerObj = get_tree().root.get_child(0).get_node("Main2D/Player")
+
 func reloadContainer():
+	print(playerObj.get_node("%Raft/Dragonator"))
+	playerObj.get_node("%Raft/Dragonator").visible=false
+	playerObj.get_node("%Raft/Dragonator").damage = 0
 	for n in range(0,8):
 		if weapons.size() > n:
 			slots[n].changeWep(IconDict[weapons[n]],weapons_lvl[n])
+			if(weapons[n] == "Dragonator"):
+				playerObj.get_node("%Raft/Dragonator").visible=true
+				playerObj.get_node("%Raft/Dragonator").damage = weaponDict["Dragonator"]["upgrades"][weapons_lvl[n]]["damage"]
 		else:
 			slots[n].changeWep(null,0)
 		
@@ -93,8 +121,8 @@ func _ready():
 		var newSlot = weaponSlotScene.instantiate()
 		add_child(newSlot)
 		slots.append(newSlot)
-	addWeapon("Axe")
-	#addWeapon("Cannon")
+	#addWeapon("Axe")
+	addWeapon("Cannon")
 	reloadContainer()
 	
 

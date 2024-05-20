@@ -75,6 +75,8 @@ func _physics_process(delta):
 			health_depleted.emit()
 	for n in range(0,weaponsObj.weapons.size()):
 		var weaponName = weaponsObj.weapons[n]
+		if weaponName == "Cannon" or weaponName == "Dragonator":
+			continue
 		var weaponLvl = weaponsObj.weapons_lvl[n]
 		var fireRate = weaponsObj.weaponDict[weaponName]["upgrades"][0]["fire_rate"]
 		if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
@@ -153,6 +155,13 @@ func level_up():
 	get_tree().paused = true
 
 func upgrade_character(upgrade):
+	print(upgrade)
+	var wep = weaponsObj.weapons.find(upgrade)
+	if wep == -1:
+		weaponsObj.addWeapon(upgrade)
+	else:
+		weaponsObj.weapons_lvl[wep] += 1
+		weaponsObj.reloadContainer()
 	var option_children = upgradeOptions.get_children()
 	for i in option_children:
 		i.queue_free()
