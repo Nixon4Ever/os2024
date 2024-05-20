@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-var movement_speed = 800
+var movement_speed = 500
 var health = 20000
 var experience = 30
-var damage = 10
+var damage = 20
 
 
 @onready var player = $"../Player"
