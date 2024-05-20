@@ -40,38 +40,38 @@ var weaponDict:={
 	"Cannon": {
 		"upgrades": [
 			{
-				"fire_rate":1.5,
+				"fire_rate":.333,
 				"proj_num":1,
 				"proj_speed":1,
-				"damage":10
+				"damage":4
 			},
 			{
-				"fire_rate":1.5,
+				"fire_rate":.333,
 				"proj_num":1,
 				"proj_speed":1,
-				"damage":15,
-				"text":"10 -> 15 damage"
+				"damage":7,
+				"text":"4 -> 7 damage"
 			},
 			{
-				"fire_rate":1,
+				"fire_rate":.2,
 				"proj_num":1,
 				"proj_speed":1,
-				"damage":15,
+				"damage":7,
 				"text":"33% faster fire rate"
 			},
 			{
-				"fire_rate":1,
+				"fire_rate":.2,
 				"proj_num":1,
 				"proj_speed":1,
-				"damage":20,
-				"text":"15 -> 20 damage"
+				"damage":10,
+				"text":"7 -> 10 damage"
 			},
 			{
-				"fire_rate":.6666,
+				"fire_rate":.2,
 				"proj_num":1,
 				"proj_speed":1,
-				"damage":20,
-				"text":"33% faster fire rate"
+				"damage":14,
+				"text":"10 -> 14 damage"
 			}
 		]
 	},
@@ -124,7 +124,10 @@ func reloadContainer():
 	for n in range(0,8):
 		if weapons.size() > n:
 			slots[n].changeWep(IconDict[weapons[n]],weapons_lvl[n])
-			if(weapons[n] == "Dragonator"):
+			if(weapons[n] == "Cannon"):
+				$"../../../Cannon".damage = weaponDict["Cannon"]["upgrades"][weapons_lvl[n-1]]["damage"]
+				$"../../../Cannon".set_firerate(weaponDict["Cannon"]["upgrades"][weapons_lvl[n-1]]["fire_rate"])
+			elif(weapons[n] == "Dragonator"):
 				playerObj.get_node("%Raft/Dragonator").visible=true
 				playerObj.get_node("%Raft/Dragonator").damage = weaponDict["Dragonator"]["upgrades"][weapons_lvl[n-1]]["damage"]
 		else:
