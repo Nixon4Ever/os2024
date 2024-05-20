@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0acnm4mhk217"]
+[gd_scene load_steps=10 format=3 uid="uid://d0acnm4mhk217"]
 
 [ext_resource type="Shader" path="res://Shader/Scroll.gdshader" id="1_1hqu7"]
 [ext_resource type="Script" path="res://scripts/Main2D.gd" id="1_e8pvp"]
@@ -6,7 +6,6 @@
 [ext_resource type="Shader" path="res://Shader/FoamScroll.gdshader" id="3_j3237"]
 [ext_resource type="Texture2D" uid="uid://ccfives4qc11w" path="res://textures/water/new waterfoam.png" id="4_p4c7s"]
 [ext_resource type="PackedScene" uid="uid://du3tlwgireb5s" path="res://scenes/player.tscn" id="5_6brsd"]
-[ext_resource type="PackedScene" uid="uid://c8enedgmukycy" path="res://scenes/BasicSerpent.tscn" id="7_1oppi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvmou"]
 shader = ExtResource("1_1hqu7")
@@ -54,9 +53,6 @@ curve = SubResource("Curve2D_073ok")
 unique_name_in_owner = true
 position = Vector2(-634, -358)
 rotation = -0.00942627
-
-[node name="BasicSerpent" parent="." instance=ExtResource("7_1oppi")]
-position = Vector2(-749, -6)
 
 [node name="loot" type="Node2D" parent="." groups=["loot"]]
 

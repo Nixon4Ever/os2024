@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5mtfah2tnnv0"]
+[gd_scene load_steps=5 format=3 uid="uid://c5mtfah2tnnv0"]
 
 [ext_resource type="PackedScene" uid="uid://d0acnm4mhk217" path="res://scenes/Main2D.tscn" id="2_7pilc"]
 [ext_resource type="Script" path="res://scripts/Timer.gd" id="2_r3y2y"]
+[ext_resource type="AudioStream" uid="uid://bf0iswie7hceu" path="res://sounds/Hit damage 1.wav" id="3_qqxtd"]
+[ext_resource type="AudioStream" uid="uid://ctay3o21ekwud" path="res://sounds/Block Break 1.wav" id="4_ga4e5"]
 
 [node name="Main" type="Node"]
 
@@ -27,3 +29,10 @@ offset_bottom = 55.0
 theme_override_font_sizes/font_size = 40
 text = "15:00"
 horizontal_alignment = 1
+
+[node name="enemyhit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qqxtd")
+volume_db = -19.891
+
+[node name="enemydeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ga4e5")

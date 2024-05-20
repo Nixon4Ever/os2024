@@ -6,6 +6,8 @@ var experience = 1
 
 @onready var player = $"../Player"
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
+@onready var hit = get_tree().root.get_child(0).get_node("enemyhit")
+@onready var enemydeath = get_tree().root.get_child(0).get_node("enemydeath")
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -14,7 +16,7 @@ func _physics_process(delta):
 
 func take_damage(damage):
 	health -= damage
-	
+	hit.play()
 	if health <= 0:
 		death()
 

@@ -8,7 +8,7 @@ var slots:= []
 var IconDict:={
 	"Axe":load("res://textures/weapons/axe projectile.png"),
 	"Cannon":load("res://textures/weapons/cannonball.png"),
-	"Dragonator":load("res://textures/weapons/dragonator.png")
+	"Dragonator":load("res://textures/weapons/dargonator_icon.png")
 }
 var weaponDict:={
 	"Dragonator":{

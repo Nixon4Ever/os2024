@@ -11,6 +11,8 @@ var speed = -2
 @onready var sprite = $Sprite2D
 @onready var collision = $CollisionShape2D
 @onready var ap = %AnimationPlayer
+@onready var sound = $snd_collected
+
 
 func _physics_process(delta):
 	if target != null:
@@ -23,7 +25,7 @@ func animation():
 	ap.play("Coin")
 
 func collect():
-	#sound.play()
+	sound.play()
 	collision.call_deferred("set", "disabled", true)
 	sprite.visible = false
 	return experience
