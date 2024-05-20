@@ -3,6 +3,7 @@ extends CharacterBody2D
 var movement_speed = 200
 var health = 10
 var experience = 1
+var damage = 5
 
 @onready var player = $"../Player"
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
@@ -24,7 +25,7 @@ func take_damage(damage):
 func death():
 	print("DEATH")
 	movement_speed = 0
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.queue_free()
 	ap.play("serpent_death")
 
 func _on_animation_player_animation_finished(serpent_death):

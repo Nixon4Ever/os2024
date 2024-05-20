@@ -66,16 +66,18 @@ func _physics_process(delta):
 		else:
 			%Raft.rotation = velocity.angle() + (PI/2)
 
-	const DAMAGE_RATE = 10.0
+	var DAMAGE_RATE = 0.0
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
-	if overlapping_mobs.size() > 0:
-		if overlapping_mobs.has_node("FatAngler"):
-			health = DAMAGE_RATE *overlapping_mobs.size() * delta * 2
-		else:
-			health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+	
+	for mob in overlapping_mobs:
+		DAMAGE_RATE += mob.damage
+		
+	if DAMAGE_RATE != 0:
+		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
 		%HealthBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
+	
 	for n in range(0,weaponsObj.weapons.size()):
 		var weaponName = weaponsObj.weapons[n]
 		if weaponName == "Cannon" or weaponName == "Dragonator":
