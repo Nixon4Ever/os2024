@@ -6,7 +6,7 @@ var red_serpent = preload("res://scenes/red_serpent.tscn")
 
 func _process(delta):
 	time += delta
-	if time + delta > 10.0 and time <= 10.0:
+	if time + delta > 120.0 and time <= 120.0:
 		spawn_boss()
 
 func spawn_enemy():
