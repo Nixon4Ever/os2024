@@ -4,8 +4,8 @@ var health := 100.0
 var direction := 0.0
 var speed := 0.0
 
-var ang_accel :=.008
-var turn_max :=.025
+var ang_accel :=.010
+var turn_max :=.030
 var accel := 600.0
 var speed_max := 500.0
 var speed_reverse_max := 200.0
