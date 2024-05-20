@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://boj6lvf45kpxs"]
+[gd_scene load_steps=5 format=3 uid="uid://boj6lvf45kpxs"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_exu7d"]
 [ext_resource type="Texture2D" uid="uid://c4s7xsbrmnh1f" path="res://textures/character/cutespider.png" id="2_bhb8v"]
+[ext_resource type="AudioStream" uid="uid://bf0iswie7hceu" path="res://sounds/Hit damage 1.wav" id="3_1ycg1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_un06e"]
 radius = 38.2099
@@ -18,3 +19,6 @@ texture = ExtResource("2_bhb8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_un06e")
+
+[node name="hit_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1ycg1")

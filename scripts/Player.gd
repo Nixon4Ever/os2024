@@ -84,13 +84,14 @@ func _physics_process(delta):
 		var fireRate = weaponsObj.weaponDict[weaponName]["upgrades"][0]["fire_rate"]
 		if fmod(time_total,fireRate)<fireRate and fmod(time_total,fireRate)+delta>fireRate:
 			if weaponName == "Axe":
-				var proj = playerProjScene.instantiate()
-				proj.position=position
-				proj.velocity = Vector2.from_angle(randf()*PI*2)*1000
-				proj.ang_vel = 10
-				proj.pierce=2
-				projectilesObj.add_child(proj)
-				proj.setIcon(weaponsObj.IconDict["Axe"])
+				for projN in range(0,weaponsObj.weaponDict[weaponName]["upgrades"][weaponsObj.weapons_lvl[n]]["proj_num"]):
+					var proj = playerProjScene.instantiate()
+					proj.position=position
+					proj.velocity = Vector2.from_angle(randf()*PI*2)*1000
+					proj.ang_vel = 10
+					proj.pierce=2
+					projectilesObj.add_child(proj)
+					proj.setIcon(weaponsObj.ProjDict["Axe"])
 
 func _on_grab_area_area_entered(area):
 	if area.is_in_group("loot"):
@@ -137,7 +138,7 @@ func level_up():
 		var wep = weaponsObj.weapons.find(n)
 		if wep != -1:
 			if weaponsObj.weapons_lvl[wep] < 5:
-				possibleOptions.append({"name":n,"lvl":weaponsObj.weapons_lvl[wep]+1,"stats":"????"})
+				possibleOptions.append({"name":n,"lvl":weaponsObj.weapons_lvl[wep]+1,"stats":weaponsObj.weaponDict[n]["upgrades"][weaponsObj.weapons_lvl[wep]+1]["text"]})
 		else:
 			possibleOptions.append({"name":n,"lvl":1,"stats":"new weapon"})
 	print(possibleOptions)

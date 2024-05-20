@@ -5,10 +5,13 @@ var weapons_lvl: Array[int] = []
 var weaponSlotScene = preload("res://scenes/WeaponSlot.tscn")
 var slots:= []
 
+var ProjDict:={
+	"Axe":load("res://textures/weapons/axe projectile.png")
+}
 var IconDict:={
-	"Axe":load("res://textures/weapons/axe projectile.png"),
-	"Cannon":load("res://textures/weapons/cannonball.png"),
-	"Dragonator":load("res://textures/weapons/dragonator.png")
+	"Axe":load("res://textures/weapons/arxe_icon.png"),
+	"Cannon":load("res://textures/weapons/connonball_icon.png"),
+	"Dragonator":load("res://textures/weapons/dargonator_icon.png")
 }
 var weaponDict:={
 	"Dragonator":{
@@ -17,50 +20,58 @@ var weaponDict:={
 				"damage":10
 			},
 			{
-				"damage":15
+				"damage":15,
+				"text":"10 -> 15 damage"
 			},
 			{
-				"damage":20
+				"damage":20,
+				"text":"15 -> 20 damage"
 			},
 			{
-				"damage":25
+				"damage":25,
+				"text":"20 -> 25 damage"
 			},
 			{
-				"damage":30
+				"damage":30,
+				"text":"25 -> 30 damage"
 			}
 		]
 	},
 	"Cannon": {
 		"upgrades": [
 			{
-				"fire_rate":.66,
+				"fire_rate":1.5,
 				"proj_num":1,
 				"proj_speed":1,
 				"damage":10
 			},
 			{
-				"fire_rate":1.0,
+				"fire_rate":1.5,
 				"proj_num":1,
 				"proj_speed":1,
-				"damage":15
+				"damage":15,
+				"text":"10 -> 15 damage"
 			},
 			{
 				"fire_rate":1,
-				"proj_num":2,
+				"proj_num":1,
 				"proj_speed":1,
-				"damage":15
+				"damage":15,
+				"text":"33% faster fire rate"
 			},
 			{
 				"fire_rate":1,
-				"proj_num":2,
+				"proj_num":1,
 				"proj_speed":1,
-				"damage":20
+				"damage":20,
+				"text":"15 -> 20 damage"
 			},
 			{
-				"fire_rate":1.25,
-				"proj_num":2,
+				"fire_rate":.6666,
+				"proj_num":1,
 				"proj_speed":1,
-				"damage":20
+				"damage":20,
+				"text":"33% faster fire rate"
 			}
 		]
 	},
@@ -70,31 +81,35 @@ var weaponDict:={
 				"fire_rate":1.0,
 				"proj_num":1,
 				"proj_speed":1,
-				"damage":10
+				"damage":15
 			},
 			{
 				"fire_rate":1.0,
 				"proj_num":1,
 				"proj_speed":1,
-				"damage":15
+				"damage":20,
+				"text":"15 -> 20 damage"
 			},
 			{
-				"fire_rate":1,
+				"fire_rate":1.0,
 				"proj_num":2,
 				"proj_speed":1,
-				"damage":15
+				"damage":20,
+				"text":"1 -> 2 projectiles"
 			},
 			{
-				"fire_rate":1,
+				"fire_rate":.8,
 				"proj_num":2,
 				"proj_speed":1,
-				"damage":20
+				"damage":20,
+				"text":"20% faster fire rate"
 			},
 			{
-				"fire_rate":1.25,
+				"fire_rate":.8,
 				"proj_num":2,
 				"proj_speed":1,
-				"damage":20
+				"damage":30,
+				"text":"20 -> 30 damage"
 			}
 		]
 	}

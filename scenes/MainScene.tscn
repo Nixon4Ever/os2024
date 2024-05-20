@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5mtfah2tnnv0"]
+[gd_scene load_steps=5 format=3 uid="uid://c5mtfah2tnnv0"]
 
-[ext_resource type="PackedScene" uid="uid://d0acnm4mhk217" path="res://scenes/Main2D.tscn" id="2_7pilc"]
+[ext_resource type="Script" path="res://scripts/MainScene.gd" id="1_5hba4"]
 [ext_resource type="Script" path="res://scripts/Timer.gd" id="2_r3y2y"]
+[ext_resource type="AudioStream" uid="uid://bf0iswie7hceu" path="res://sounds/Hit damage 1.wav" id="3_qqxtd"]
+[ext_resource type="AudioStream" uid="uid://ctay3o21ekwud" path="res://sounds/Block Break 1.wav" id="4_ga4e5"]
 
 [node name="Main" type="Node"]
-
-[node name="Main2D" parent="." instance=ExtResource("2_7pilc")]
+script = ExtResource("1_5hba4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Timer" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -28,4 +30,40 @@ theme_override_font_sizes/font_size = 40
 text = "15:00"
 horizontal_alignment = 1
 
-[connection signal="spawn_boss" from="CanvasLayer/Timer" to="Main2D" method="_on_timer_spawn_boss"]
+[node name="enemyhit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qqxtd")
+volume_db = -19.891
+
+[node name="enemydeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ga4e5")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="MainMenu"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayButton" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 315.0
+offset_right = 355.0
+offset_bottom = 387.0
+theme_override_font_sizes/font_size = 35
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 431.0
+offset_right = 355.0
+offset_bottom = 503.0
+theme_override_font_sizes/font_size = 35
+text = "QUIT"
+
+[connection signal="button_down" from="MainMenu/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="MainMenu/QuitButton" to="." method="_on_quit_button_button_down"]
