@@ -36,4 +36,5 @@ volume_db = -19.891
 
 [node name="enemydeath" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ga4e5")
+
 [connection signal="spawn_boss" from="CanvasLayer/Timer" to="Main2D" method="_on_timer_spawn_boss"]
