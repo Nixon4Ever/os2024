@@ -140,7 +140,7 @@ func level_up():
 	for n in weaponsObj.weaponDict.keys():
 		var wep = weaponsObj.weapons.find(n)
 		if wep != -1:
-			if weaponsObj.weapons_lvl[wep] < 5:
+			if weaponsObj.weapons_lvl[wep] < 7:
 				print(n + str(wep))
 				print(weaponsObj.weapons_lvl[wep])
 				possibleOptions.append({"name":n,"lvl":weaponsObj.weapons_lvl[wep]+1,"stats":weaponsObj.weaponDict[n]["upgrades"][weaponsObj.weapons_lvl[wep]]["text"]})
