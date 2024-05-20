@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b446is8odhtuu" path="res://textures/enemies/fat_anglersprite-Sheet.png" id="2_mffpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7lek5"]
-size = Vector2(229, 206)
+size = Vector2(409, 356)
 
 [sub_resource type="Animation" id="Animation_cdmlw"]
 resource_name = "Fat_angler_death"
@@ -115,16 +115,16 @@ _data = {
 }
 
 [node name="BossSerpent" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_waqrk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -14)
+position = Vector2(5.5, -22)
 shape = SubResource("RectangleShape2D_7lek5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.63052, 3.63052)
+scale = Vector2(6.25, 6.25)
 texture = ExtResource("2_mffpj")
 hframes = 8
 
