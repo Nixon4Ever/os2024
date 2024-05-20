@@ -127,16 +127,28 @@ func set_expbar(set_value = 1, set_max_value = 100):
 	expbar.max_value = set_max_value
 
 func level_up():
+	var possibleOptions =[]
+	for n in weaponsObj.weaponDict.keys():
+		var wep = weaponsObj.weapons.find(n)
+		if wep != -1:
+			if weaponsObj.weapons_lvl[wep] < 5:
+				possibleOptions.append({"name":n,"lvl":weaponsObj.weapons_lvl[wep]+1,"stats":"????"})
+		else:
+			possibleOptions.append({"name":n,"lvl":1,"stats":"new weapon"})
+	print(possibleOptions)
 	lbllevel.text = str("Level:", experience_level)
 	var tween = levelPanel.create_tween()
 	tween.tween_property(levelPanel, "position", Vector2(376,74),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween.play()
 	levelPanel.visible = true
 	var options = 0
-	var optionsmax = 3
+	var optionsmax = clamp(3,0,possibleOptions.size())
 	while options < optionsmax:
+		var choice = int(floor(randf()*possibleOptions.size()))
 		var option_choice = itemOptions.instantiate()
 		upgradeOptions.add_child(option_choice)
+		option_choice.setUpgrade(possibleOptions[choice]["name"],weaponsObj.IconDict[possibleOptions[choice]["name"]],possibleOptions[choice]["lvl"],possibleOptions[choice]["stats"])
+		possibleOptions.remove_at(choice)
 		options += 1
 	get_tree().paused = true
 

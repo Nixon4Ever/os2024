@@ -13,6 +13,13 @@ func _input(event):
 	if event.is_action("click"):
 		if mouse_over:
 			emit_signal("selected_upgrade",item)
+			
+func setUpgrade(name_,icon,lvl,stats):
+	item=name_
+	$lbl_name.text=name_
+	$lbl_level.text=str(lvl)
+	$lbl_descripition.text=stats
+	$ColorRect/ItemIcon.texture=icon
 
 func _on_mouse_entered():
 	mouse_over = true

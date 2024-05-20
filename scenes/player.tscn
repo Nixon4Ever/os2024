@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://du3tlwgireb5s"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_6m665"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_058bd"]
 [ext_resource type="Texture2D" uid="uid://7w7ik7s10duj" path="res://textures/character/raft.png" id="2_5cfyv"]
 [ext_resource type="PackedScene" uid="uid://c3sfgsk8jsm4m" path="res://scenes/UI.tscn" id="2_v3s7a"]
 [ext_resource type="PackedScene" uid="uid://bahu6tqcpiyxa" path="res://scenes/cannon.tscn" id="3_fmiwp"]
@@ -40,7 +40,7 @@ bg_color = Color(0.983933, 0.16821, 0.827631, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
-script = ExtResource("1_6m665")
+script = ExtResource("1_058bd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qif0j")
